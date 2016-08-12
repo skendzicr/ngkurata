@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from "./product";
 import { ProductFilterPipe } from "./product-filter.pipe";
+import { StarComponent } from "../shared/star.component";
 
 @Component({
 	// moduleId: module.id,
 	selector: 'pm-products',
 	templateUrl: 'app/products/product-list.component.html',
     styleUrls: ["app/products/product-list.component.css"],
-    pipes: [ ProductFilterPipe ]
+    pipes: [ ProductFilterPipe ],
+    directives: [StarComponent]
+    
 })
 export class ProductListComponent implements OnInit {
 	pageTitle: string =" Product list";
@@ -75,6 +78,10 @@ toggleImage(): void{
 
 ngOnInit():void{
     console.log("Initialized onInit");    
+}
+
+onRatingClicked(message:string):void{
+    this.pageTitle = "Product list: " + message;
 }
 	
 

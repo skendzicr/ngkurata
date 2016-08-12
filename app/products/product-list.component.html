@@ -41,7 +41,7 @@
 							<td>{{ product.releaseDate }}</td>
 							<td>{{ product.price | currency:"EUR":true:"1.2-2"}}</td>
 							<!--koja valuta, da li da se prikazuje simbol, jedna cifra pre decimale, minimalno 2 posle, maksimalno 2 posle -->
-							<td>{{ product.starRating }}</td>
+							<td><ai-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></ai-star> </td>
 						</tr>
 					</tbody>
 				</table>
